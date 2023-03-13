@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import productsServices from "../../services/productsServices";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Product from "../Product/Product";
 import styles from "./ProductsList.module.css";
 
@@ -16,18 +17,23 @@ const Products = () => {
   }, []);
 
   return (
-    <div className={styles.productsWrapper}>
-      {products.map((product) => {
-        return (
-          <Product
-            title={product.title}
-            image={product.thumbnail}
-            price={product.price}
-            key={product.id}
-          />
-        );
-      })}
-    </div>
+    <ResponsiveMasonry
+      columnsCount={3}
+      columnsCountBreakPoints={{200: 1,400: 2, 900: 3 }}
+    >
+      <Masonry gutter="5px" className={styles.productsWrapper}>
+        {products.map((product) => {
+          return (
+            <Product
+              title={product.title}
+              image={product.thumbnail}
+              price={product.price}
+              key={product.id}
+            />
+          );
+        })}
+      </Masonry>
+    </ResponsiveMasonry>
   );
 };
 

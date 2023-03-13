@@ -1,0 +1,11 @@
+.productLi{
+  list-style-type: none;
+  padding: 10px;
+  border-radius: 5px;
+  border: 3px solid #ee2929
+}
+
+.productLi__img{
+  width: 100%;
+  height: auto;
+}

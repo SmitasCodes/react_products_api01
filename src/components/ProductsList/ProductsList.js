@@ -26,6 +26,9 @@ const Products = () => {
           return (
             <Product
               title={product.title}
+              description={product.description}
+              category={product.category}
+              brand={product.brand}
               image={product.thumbnail}
               price={product.price}
               key={product.id}

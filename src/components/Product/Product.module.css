@@ -5,6 +5,17 @@
   border: 3px solid #ee2929
 }
 
+.productLi__title{
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid black;
+  text-align: center;
+}
+
+.productLi__prop{
+  border-bottom: 2px solid #000;
+}
+
 .productLi__img{
   width: 100%;
   height: auto;

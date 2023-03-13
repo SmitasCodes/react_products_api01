@@ -1,0 +1,14 @@
+.productsByCategoryWrapper{
+  width: 50%;
+  float: right;
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 530px){
+  .productsByCategoryWrapper{
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+

@@ -1,0 +1,26 @@
+.productsBySearchWrapper{
+  width: 50%;
+  float: left;
+  display: flex;
+  justify-content: space-around;
+}
+
+.productsBySearchWrapper__submit{
+  font-size: 20px;
+  border: 2px solid #0079be;
+  border-radius: 5px;
+  width: 20%;
+  min-width: 70px;
+}
+
+@media (max-width: 530px){
+  .productsBySearchWrapper{
+    display: block;
+    width: 100%;
+  }
+
+  .productsBySearchWrapper__submit{
+    margin:  0 5px;
+  }
+}
+

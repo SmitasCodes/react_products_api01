@@ -13,7 +13,7 @@ const Products = (props) => {
   }, [props.products]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className={styles.productsFeedback}>Loading...</p>;
   }
 
   return (

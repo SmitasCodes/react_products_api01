@@ -1,8 +1,21 @@
+import React,{useState,useEffect} from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Product from "../Product/Product";
 import styles from "./ProductsList.module.css";
 
 const Products = (props) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (props.products.length > 0) {
+      setLoading(false);
+    }
+  }, [props.products]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div>
       <ResponsiveMasonry
@@ -10,7 +23,7 @@ const Products = (props) => {
         columnsCountBreakPoints={{ 200: 1, 400: 2, 900: 3 }}
       > 
         <Masonry gutter="5px" >
-          {props.products.length == 0 && <p className={styles.productsFeedback}>No Products Found</p>}
+          
           {props.products.map((product) => {
             return (
               <Product
@@ -24,6 +37,9 @@ const Products = (props) => {
               />
             );
           })}
+           {props.products.length === 0 && (
+            <p className={styles.productsFeedback}>No Products Found</p>
+          )}
         </Masonry>
       </ResponsiveMasonry>
     </div>

@@ -22,7 +22,7 @@ const Products = (props) => {
         columnsCount={3}
         columnsCountBreakPoints={{ 200: 1, 400: 2, 900: 3 }}
       > 
-        <Masonry gutter="5px" >
+        <Masonry gutter="10px" >
           
           {props.products.map((product) => {
             return (

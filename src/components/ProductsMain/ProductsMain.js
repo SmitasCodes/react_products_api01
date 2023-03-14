@@ -19,7 +19,7 @@ const ProductsMain = () => {
   }, []);
 
   const catFilteredProducts = (categoryOption) => {
-    if(categoryOption=='all'){
+    if(categoryOption==='all'){
       setFiltered(products)
       return;
     }

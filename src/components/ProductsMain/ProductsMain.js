@@ -6,12 +6,11 @@ import styles from "./ProductsMain.module.css";
 
 const ProductsMain = () => {
   const [products, setProducts] = useState([]);
-  const [filtered, setFiltered] = useState([]);
+  const [filteredCategory, setFilteredCat] = useState('all');
 
   const getProducts = async (searchEntry) => {
     const res = await productsServices(searchEntry);
     setProducts(res.products);
-    setFiltered(res.products);
   };
 
   useEffect(() => {
@@ -19,14 +18,7 @@ const ProductsMain = () => {
   }, []);
 
   const catFilteredProducts = (categoryOption) => {
-    if(categoryOption==='all'){
-      setFiltered(products)
-      return;
-    }
-
-    setFiltered(products.filter((product) => {
-      return product.category == categoryOption;
-    }));
+    setFilteredCat(categoryOption)
   };
 
   return (
@@ -36,7 +28,7 @@ const ProductsMain = () => {
         categoryEntry={catFilteredProducts}
         productsList={products}
       />
-      <ProductsList products={filtered} />
+      <ProductsList products={products} filteredCategory={filteredCategory}/>
     </div>
   );
 };

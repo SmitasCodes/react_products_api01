@@ -16,6 +16,16 @@ const Products = (props) => {
     return <p className={styles.productsFeedback}>Loading...</p>;
   }
 
+  let filteredProducts = [];
+
+  if(props.filteredCategory==="all"){
+    filteredProducts = props.products;
+  } else{
+    filteredProducts = props.products.filter((product) =>{
+      return product.category == props.filteredCategory;
+    })
+  }
+
   return (
     <div>
       <ResponsiveMasonry
@@ -24,7 +34,7 @@ const Products = (props) => {
       > 
         <Masonry gutter="10px" >
           
-          {props.products.map((product) => {
+          {filteredProducts.map((product) => {
             return (
               <Product
                 title={product.title}
